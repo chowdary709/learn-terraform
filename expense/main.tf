@@ -10,11 +10,11 @@ resource "aws_instance" "example" {
   }
 }
 
-# route53.tf
+
 
 resource "aws_route53_record" "instance_record" {
   zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "frontend.${data.aws_route53_zone.zone.name}"
+  name    = "frontend.${var.record_name}"
   type    = "A"
   ttl     = 30
   records = [aws_instance.example.private_ip]
