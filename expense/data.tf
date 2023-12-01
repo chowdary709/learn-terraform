@@ -1,5 +1,5 @@
 variable "zone_id" {
-  default = "roboshop.internal"
+  default = ["Z08360431XA1BOY4SK2N0"]
 }
 
 data "aws_ami" "ami" {
