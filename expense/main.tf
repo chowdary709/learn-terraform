@@ -1,18 +1,20 @@
 data "aws_ami" "ami" {
-  most_recent      = true
-  name_regex       = "Centos-8-DevOps-Practice"
-  owners           = ["973714476881"]
+  most_recent = true
+  name_regex  = "Centos-8-DevOps-Practice"
+  owners      = ["973714476881"]
 }
 
 data "aws_security_group" "sg" {
   name = "allow-all"
 }
 
-data "aws_route53_zone" "zone" {
-  name = var.zone_id
-}
 variable "zone_id" {
   default = "Z08360431XA1BOY4SK2N0"
+}
+
+# Use a single data block for aws_route53_zone
+data "aws_route53_zone" "zone" {
+  name = "roboshop.internal"  # Update with your new hosted zone name
 }
 
 locals {
