@@ -7,17 +7,10 @@ resource "aws_instance" "frontend" {
     Name = "frontend"
   }
 }
-data "aws_route53_zone" "zone" {
-  name         = var.zone_id
-}
-
-variable "zone_id" {
-  default = "roboshop.internal"
-}
 
 resource "aws_route53_record" "frontend" {
   zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "frontend.${var.zone_id}"
+  name    = "frontend.roboshop.internal"
   type    = "A"
   ttl     = 30
   records = [aws_instance.frontend.private_ip]
