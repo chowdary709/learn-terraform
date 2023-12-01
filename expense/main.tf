@@ -9,8 +9,8 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_route53_record" "frontend" {
-  zone_id = "Z08360431XA1BOY4SK2N0"
-  name    = "frontend.roboshop.internal"
+  zone_id = data.aws_route53_zone.zone.zone_id
+  name    = "frontend.${data.aws_route53_zone.zone.name}"
   type    = "A"
   ttl     = 30
   records = [aws_instance.frontend.private_ip]
