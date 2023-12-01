@@ -9,7 +9,7 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_route53_record" "frontend" {
-  zone_id = Z08360431XA1BOY4SK2N0
+  zone_id = ["Z08360431XA1BOY4SK2N0"]
   name    = "frontend.roboshop.internal"
   type    = "A"
   ttl     = 30
