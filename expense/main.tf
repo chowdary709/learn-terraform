@@ -1,4 +1,3 @@
-
 resource "aws_instance" "frontend" {
   ami           = data.aws_ami.ami.image_id
   instance_type = "t2.micro"
@@ -16,5 +15,3 @@ resource "aws_route53_record" "frontend" {
   ttl     = 30
   records = [ aws_instance.frontend.private_ip ]
 }
-
-
