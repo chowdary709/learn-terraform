@@ -9,7 +9,7 @@ data "aws_security_group" "sg" {
 }
 
 data "aws_route53_zone" "zone" {
-  name = var.zone_id
+  name = "${var.zone_id}"
 }
 
 variable "zone_id" {
