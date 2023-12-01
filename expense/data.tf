@@ -14,11 +14,11 @@ data "aws_route53_zone" "zone" {
   name = var.zone_id
 }
 
-data "aws_route53_record" "record" {
-  zone_id = data.aws_route53_zone.zone.zone_id
-  name    = var.record_name
-  type    = "A"
-}
+#data "aws_route53_record" "record" {
+#  zone_id = data.aws_route53_zone.zone.zone_id
+#  name    = var.record_name
+#  type    = "A"
+#}
 
 # data.tf
 
