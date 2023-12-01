@@ -7,11 +7,3 @@ data "aws_ami" "ami" {
 data "aws_security_group" "sg" {
   name = "allow-all"
 }
-
-data "aws_route53_zone" "zone" {
-  name         = "roboshop.internal"
-}
-#
-#variable "zone_id" {
-#  default = "roboshop.internal"
-#}
