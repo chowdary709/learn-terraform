@@ -13,3 +13,6 @@ data "aws_ami" "ami" {
 data "aws_security_group" "sg" {
   id = "allow-all"
 }
+data "aws_security_group" "sg" {
+  id = "allow-all"  # This is causing the error
+}
