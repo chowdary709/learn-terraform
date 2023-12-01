@@ -7,5 +7,5 @@ data "aws_ami" "ami" {
 }
 
 data "aws_security_group" "sg" {
-  id = ["sg-0b792d7d432d8d378"]
+  id = "sg-0b792d7d432d8d378"
 }
