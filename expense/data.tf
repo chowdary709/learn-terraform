@@ -6,13 +6,6 @@ data "aws_ami" "ami" {
   owners      = ["973714476881"]
 }
 
-#data "aws_security_group" "sg" {
-#  id = "sg-0b792d7d432d8d378"
-#}
-
-data "aws_security_group" "sg" {
-  id = "allow-all"
-}
 data "aws_security_group" "sg" {
   id = "allow-all"  # This is causing the error
 }
