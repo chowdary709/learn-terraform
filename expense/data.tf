@@ -10,7 +10,7 @@ data "aws_security_group" "sg" {
 
 variable "zone_id" {
   type    = string
-  default = "Z08360431XA1BOY4SK2N0"
+  default = "roboshop.internal"
 }
 data "aws_route53_zone" "zone" {
   name = var.zone_id
