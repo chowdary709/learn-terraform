@@ -8,11 +8,16 @@ data "aws_security_group" "sg" {
   name = "allow-all"
 }
 
+data "aws_route53_zone" "zone" {
+  name         = var.zone_id
+}
 
 variable "zone_id" {
   default = "roboshop.internal"
 }
 
-data "aws_route53_zone" "zone" {
-  name         = var.zone_id
+
+locals {
+  ami = data.aws_ami.ami.image_id
+  zone_id = data.aws_route53_zone.zone.zone_id
 }
