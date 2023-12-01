@@ -3,7 +3,6 @@
 resource "aws_instance" "example" {
   ami           = data.aws_ami.ami.id
   instance_type = "t2.micro"
-  subnet_id     = "your_subnet_id"  # Update with your actual subnet ID
   security_group = [data.aws_security_group.sg.id]
 
   tags = {
