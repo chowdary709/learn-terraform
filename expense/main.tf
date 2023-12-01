@@ -1,14 +1,15 @@
 # ec2.tf
 
 resource "aws_instance" "example" {
-  ami           = data.aws_ami.ami.id
-  instance_type = "t2.micro"
-  security_group = [data.aws_security_group.sg.id]
+  ami                    = data.aws_ami.ami.id
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [data.aws_security_group.sg.id]
 
   tags = {
-    Name = "example-instance"
+    Name = "frontend"
   }
 }
+
 # route53.tf
 
 resource "aws_route53_record" "instance_record" {
