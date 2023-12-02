@@ -17,6 +17,7 @@ EOF
 }
 
 
+
 resource "aws_route53_record" "frontend" {
   zone_id = local.zone_id
   name    = "frontend.${var.zone_name}"
