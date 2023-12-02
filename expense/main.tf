@@ -17,7 +17,6 @@ resource "aws_route53_record" "frontend" {
 }
 
 
-
 output "zone_id" {
   value = data.aws_route53_zone.zone.id
 }
