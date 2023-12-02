@@ -10,11 +10,11 @@ data "aws_security_group" "sg" {
 
 data "aws_route53_zone" "zone" {
   name = var.zone_name
+  private_zone  = true
 }
 
 variable "zone_name" {
   default = "roboshop.internal"
-  private_zone = true
 }
 
 
