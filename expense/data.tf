@@ -1,21 +1,5 @@
-data "aws_ami" "ami" {
-  most_recent = true
-  name_regex  = "Centos-8-DevOps-Practice"
-  owners      = ["973714476881"]
-}
-
-data "aws_security_group" "sg" {
-  name = "allow-all"
-}
-
-
-# Use a single data block for aws_route53_zone
-data "aws_route53_zone" "zone" {
-  name = "Z08360431XA1BOY4SK2N0"
-}
-
-
-locals {
-  ami     = data.aws_ami.ami.image_id
-  zone_id = data.aws_route53_zone.zone.zone_id
-}
+ami = "ami-03265a0778a880afb"
+instance_type = "t2.micro"
+sg_id = ["sg-0b792d7d432d8d378"]
+zone_id = "Z08360431XA1BOY4SK2N0"
+Hosted_zone_name = "robosgop.internal"
