@@ -8,7 +8,7 @@ resource "aws_instance" "frontend" {
   }
   provisioner "local-exec" {
     command = <<EOF
-cd /home/chandrahari321/infra-ansible
+cd /root/infra-ansible/roles
 git pull
 sleep 60
 ansible-playbook -i ${aws_instance.frontend.private_ip}, expense.yml -e role_name=frontend
@@ -22,9 +22,4 @@ resource "aws_route53_record" "frontend" {
   type    = "A"
   ttl     = 30
   records = [aws_instance.frontend.private_ip]
-}
-
-
-output "zone_id" {
-  value = data.aws_route53_zone.zone.id
 }
