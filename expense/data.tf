@@ -14,6 +14,7 @@ data "aws_route53_zone" "zone" {
 
 variable "zone_name" {
   default = "roboshop.internal"
+  private_zone = true
 }
 
 
