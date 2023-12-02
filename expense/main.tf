@@ -15,6 +15,8 @@ resource "aws_route53_record" "frontend" {
   ttl     = 30
   records = [aws_instance.frontend.private_ip]
 }
+
+
 resource "null_resource" "frontend" {
   depends_on = [aws_route53_record.frontend]
 
