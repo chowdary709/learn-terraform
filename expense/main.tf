@@ -6,16 +6,15 @@ resource "aws_instance" "frontend" {
   tags = {
     Name = "frontend"
   }
-#  provisioner "local-exec" {
-#    command = <<EOF
-#cd /root/infra-ansible/roles
-#git pull
-#sleep 60
-#ansible-playbook -i ${aws_instance.frontend.private_ip}, expense.yml -e role_name=frontend
-#EOF
   provisioner "local-exec" {
-    command = "/path/to/ansible-playbook -i 172.31.47.223, expense.yml -e role_name=frontend"
-}
+    command = <<EOF
+cd /root/infra-ansible/roles
+git pull
+sleep 60
+/path/to/ansible-playbook -i ${aws_instance.frontend.private_ip}, expense.yml -e role_name=frontend
+EOF
+  }
+
 }
 
 resource "aws_route53_record" "frontend" {
