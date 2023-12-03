@@ -16,14 +16,14 @@ resource "aws_route53_record" "frontend" {
   records = [aws_instance.frontend.private_ip]
 }
 
-#
-#resource "null_resource" "frontend" {
-#  provisioner "local-exec" {
-#    command = <<EOF
-#cd /home/centos/infra-ansible
-#git pull
-#sleep 60
-#ansible-playbook -i  ${aws_instance.frontend.private_ip}, expense.yml -e role_name=frontend
-#EOF
-#  }
-#}
+
+resource "null_resource" "frontend" {
+  provisioner "local-exec" {
+    command = <<EOF
+cd /home/centos/infra-ansible
+git pull
+sleep 60
+ansible-playbook -i  ${aws_instance.frontend.private_ip}, expense.yml -e role_name=frontend
+EOF
+  }
+}
