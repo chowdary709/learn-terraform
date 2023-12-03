@@ -6,17 +6,7 @@ resource "aws_instance" "frontend" {
   tags = {
     Name = "frontend"
   }
-  provisioner "local-exec" {
-    command = <<EOF
-cd /home/centos/infra-ansible
-git pull
-sleep 60
-ansible-playbook -i ${self.private_ip}, expense.yml -e role_name=frontend
-EOF
-  }
 }
-
-
 
 resource "aws_route53_record" "frontend" {
   zone_id = local.zone_id
@@ -25,3 +15,15 @@ resource "aws_route53_record" "frontend" {
   ttl     = 30
   records = [aws_instance.frontend.private_ip]
 }
+
+#
+#resource "null_resource" "frontend" {
+#  provisioner "local-exec" {
+#    command = <<EOF
+#cd /home/centos/infra-ansible
+#git pull
+#sleep 60
+#ansible-playbook -i  ${aws_instance.frontend.private_ip}, expense.yml -e role_name=frontend
+#EOF
+#  }
+#}
