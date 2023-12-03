@@ -20,7 +20,8 @@ resource "aws_route53_record" "frontend" {
 resource "null_resource" "frontend" {
   provisioner "local-exec" {
     command = <<EOF
-cd /home/centos/infra-ansible
+sudo mkdir -p /home/centos/infra-ansible
+sudo yum install ansible
 git pull
 sleep 60
 ansible-playbook -i  ${aws_instance.frontend.private_ip}, expense.yml -e role_name=frontend
