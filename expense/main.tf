@@ -22,6 +22,7 @@ resource "null_resource" "frontend" {
   provisioner "local-exec" {
     command = <<EOF
 git clone https://github.com/chowdary709/infra-ansible.git
+git pull
 cd /root/infra-ansible/roles
 git pull
 sleep 70
