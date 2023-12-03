@@ -23,7 +23,6 @@ resource "null_resource" "frontend" {
     command = <<EOF
 git clone https://github.com/chowdary709/infra-ansible.git
 cd /home/centos/infra-ansible
-sudo yum install ansible
 git pull
 sleep 60
 EOF
