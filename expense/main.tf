@@ -18,9 +18,10 @@ resource "aws_route53_record" "frontend" {
 
 
 resource "null_resource" "frontend" {
+  depends_on = [aws_route53_record.frontend]
   provisioner "local-exec" {
     command = <<EOF
-sudo mkdir -p /home/centos/infra-ansible
+cd /home/centos/infra-ansible
 sudo yum install ansible
 git pull
 sleep 60
