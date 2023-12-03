@@ -19,14 +19,13 @@ resource "aws_route53_record" "frontend" {
 
 resource "null_resource" "frontend" {
   depends_on = [aws_route53_record.frontend]
+
   provisioner "local-exec" {
     command = <<EOF
-git clone https://github.com/chowdary709/infra-ansible.git
+cd /root/expense-ansible/roles
 git pull
-cd /root/infra-ansible/roles
-git pull
-sleep 70
-ansible-playbook -i  ${aws_instance.frontend.private_ip}, -e role_name=frontend expense.yml
+sleep 60
+ansible-playbook -i ${aws_instance.frontend.private_ip}, -e ansible_user=centos -e ansible_password=DevOps321 expense.yml -e role_name=frontend
 EOF
   }
 }
