@@ -1,4 +1,8 @@
 module "test" {
   source = "./local-module"
-  input = "hari chandra prasad"
+  input = var.input
+}
+
+variable "input" {
+  default = "hari chandra prasad"
 }
