@@ -5,5 +5,5 @@ module "expense" {
 }
 
 variable "expense" {
-  default = ["frontend", "backend", "mysql"]
+  default = ["frontend", "mysql", "backend"]
 }
