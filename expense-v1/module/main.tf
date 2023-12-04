@@ -7,15 +7,14 @@ resource "aws_instance" "instance" {
     Name = var.component
   }
 }
+
 resource "aws_route53_record" "record" {
   zone_id = local.zone_id
-  name    = "${var.component}.${var.zone_id}"
+  name    = "${var.component}.${var.zone_name}"
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance.private_ip]
 }
-
-
 
 resource "null_resource" "ansible" {
   depends_on = [aws_route53_record.record]
