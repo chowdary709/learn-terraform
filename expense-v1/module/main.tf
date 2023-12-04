@@ -19,7 +19,6 @@ resource "aws_route53_record" "record" {
 resource "null_resource" "ansible" {
   depends_on = [aws_route53_record.record]
 
-
   provisioner "local-exec" {
     command = <<EOF
 cd /root/expense-ansible/roles
@@ -29,4 +28,3 @@ ansible-playbook -i ${aws_instance.instance.private_ip}, -e ansible_user=centos 
 EOF
   }
 }
-
