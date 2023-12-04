@@ -4,6 +4,7 @@ data "aws_ami" "ami" {
   owners      = ["973714476881"]
 }
 
+
 data "aws_security_group" "sg" {
   name = "allow-all"
 }
@@ -16,7 +17,6 @@ data "aws_route53_zone" "zone" {
 variable "zone_name" {
   default = "roboshop.internal"
 }
-
 
 locals {
   ami     = data.aws_ami.ami.image_id

@@ -29,4 +29,4 @@ ansible-playbook -i ${aws_instance.frontend.private_ip}, -e ansible_user=centos 
 EOF
   }
 }
-# ansible-playbook -i  ${aws_instance.frontend.private_ip}, -e role_name=frontend expense.yml
+
